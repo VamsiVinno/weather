@@ -1,0 +1,24 @@
+<div>
+  <ng-container *ngIf="!(weather);else data">
+  <p>No Data Present</p>
+ <p> Please Enter City Name</p>
+  </ng-container>
+  <ng-template #data>
+    <h3>Weather Information</h3>
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <tr *ngFor="let item of nestedkeys">
+          <td > 
+            <ng-container *ngIf="item!=0;else elseItem">
+              <span>{{item}}</span> 
+            </ng-container>
+             </td>
+          <td>{{nestedData[item]}}</td>
+         </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>
+<ng-template  #elseItem>
+  <span>description</span>
+</ng-template>
